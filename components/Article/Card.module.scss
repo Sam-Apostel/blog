@@ -1,0 +1,19 @@
+@layer components {
+	.article {
+		margin-block: 1rem;
+		padding-block: 1rem;
+
+		display: flex;
+		flex-direction: column;
+
+		&:not(:last-of-type) {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			border-bottom-color: var(--gray-light);
+		}
+		.more {
+			align-self: end;
+		}
+
+	}
+}

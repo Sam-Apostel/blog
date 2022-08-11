@@ -1,0 +1,23 @@
+@layer components {
+	.body {
+		// keep content at a book-like readable width on bigger screens
+		flex-basis: 90ch;
+		padding-inline: 1rem;
+
+		// move footer to bottom of screen if main is not long enough
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2rem;
+
+
+		main {
+
+		}
+
+		footer {
+			height: 4rem;
+		}
+	}
+}

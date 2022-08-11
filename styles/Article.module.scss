@@ -1,0 +1,28 @@
+@layer pages {
+	.title {
+
+	}
+	.content {
+		a {
+			text-decoration: underline;
+		}
+		span > code {
+			white-space: unset !important;
+		}
+		pre > code {
+			white-space: pre-wrap !important;
+		}
+		h3 {
+			margin-top: 3rem;
+			font-size: 1.5rem;
+		}
+		p {
+			margin-block: 1rem;
+		}
+	}
+	.back {
+		display: block;
+		margin-top: 5rem;
+		margin-bottom: -6.5rem;
+	}
+}

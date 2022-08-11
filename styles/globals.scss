@@ -1,0 +1,119 @@
+@import './fonts/jetbrains.css';
+
+/*
+    specifies the layer order
+    components overwrite default styles
+    pages overwrite components
+ */
+@layer setup, components, pages;
+
+@layer setup {
+
+	:root {
+		--light: #fff5f1;
+		--gray-light: #d3dfe5;
+		--gray: #84939f;
+		--dark: #514646;
+
+		--accent: #7176ec;
+		@media (prefers-color-scheme: dark) {
+			--light: #514646;
+			--gray-light: #5a656d;
+			--gray: #d3dfe5;
+			--dark: #fff5f1;
+
+			--accent: #7176ecaa;
+		}
+	}
+	html,
+	body {
+		padding: 0;
+		margin: 0;
+		font-family: jetbrains, monospace;
+		font-size: 12px;
+		line-height: 1.5;
+
+		color: var(--dark);
+		background-color: var(--light);
+	}
+
+	h1 {
+		font-size: 3rem;
+		margin-block: 5rem 3rem;
+		text-align: right;
+	}
+	h2 {
+		font-size: 2rem;
+		margin-block: .5rem;
+	}
+	h3 {
+		font-size: 1.25rem;
+		line-height: 1.5;
+		margin-block: .5rem;
+	}
+
+	p {
+		text-align: justify;
+	}
+
+
+	#__next {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	a {
+		color: var(--focusable-color, inherit);
+
+		text-decoration: var(--focusable-text-decor, none);
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+	button, input[type=submit], input[type=cancel], input[type=button], input {
+		margin: 0;
+		padding: 0;
+
+		border-width: 1px;
+		border-style: solid;
+		border-color: var(--focusable-color, var(--gray));
+
+		cursor: pointer;
+
+		&:focus-visible {
+			border-width: 2px;
+			margin: -1px;
+		}
+	}
+
+	input:not(:is([type=submit], [type=cancel], [type=button], [type=checkbox])) {
+		font-size: 16px;
+		background-color: white;
+		padding: .5rem;
+		cursor: text;
+	}
+
+	* {
+		box-sizing: border-box;
+
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+		color: inherit;
+
+		&:focus-visible {
+			--focusable-color: var(--accent);
+			--focusable-text-decor: underline;
+			outline: none;
+		}
+		border-color: var(--gray);
+	}
+
+	::selection {
+		background: var(--accent);
+		color: var(--light);
+	}
+
+}

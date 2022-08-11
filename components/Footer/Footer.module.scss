@@ -1,0 +1,14 @@
+@layer components {
+	.footer {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		font-weight: 300;
+		border-top-width: 1px;
+		border-top-style: solid;
+
+		b {
+			font-weight: 500;
+		}
+	}
+}
