@@ -22,7 +22,7 @@
 			--gray: #d3dfe5;
 			--dark: #fff5f1;
 
-			--accent: #7176ecaa;
+			--accent: #9297ec;
 		}
 	}
 	html,
@@ -113,7 +113,7 @@
 
 	::selection {
 		background: var(--accent);
-		color: var(--light);
+		color: #fff5f1;
 	}
 
 }

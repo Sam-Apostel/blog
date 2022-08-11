@@ -6,11 +6,12 @@
 		a {
 			text-decoration: underline;
 		}
-		span > code {
-			white-space: unset !important;
-		}
-		pre > code {
-			white-space: pre-wrap !important;
+		pre, span {
+			> code {
+				white-space: pre-wrap !important;
+				line-height: 2;
+				tab-size: 4;
+			}
 		}
 		h3 {
 			margin-top: 3rem;

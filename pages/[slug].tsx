@@ -62,13 +62,11 @@ const Article: NextPage<SerializedArticle> = (serializedArticle) => {
 			<section className={styles.content}>
 				<ReactMarkdown
 					components={{
-						pre({ children }) {
-							return children;
-						},
 						code({ node, className, ...props }) {
 							const match = /language-(\w+)/.exec(className || '')
 							return match ? (
 								<SyntaxHighlighter
+									// @ts-ignore
 									style={prefersDark ? dark : light}
 									language={match?.[1]}
 									useInlineStyles={true}
@@ -77,6 +75,7 @@ const Article: NextPage<SerializedArticle> = (serializedArticle) => {
 								/>
 							) : (
 								<SyntaxHighlighter
+									// @ts-ignore
 									style={prefersDark ? dark : light}
 									language={'md'}
 									useInlineStyles={true}
