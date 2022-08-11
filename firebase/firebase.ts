@@ -49,10 +49,10 @@ const updateArticle = (slug: string, newData: Partial<Article>) => {
 }
 
 /**
- * just await this function where it will be executed and you can update the data
+ * just await this function where it will be executed, and you can update the data.
  */
 const editArticle = () => {
-	updateArticle('equals-does-not-float', {
+	return updateArticle('equals-does-not-float', {
 		content: `Hi!
 I'm new here and I guess so are you.
 I am one of those developers with tons of ideas and no time to bring them all to life; who starts working on each and every one of these ideas barely finishing any.

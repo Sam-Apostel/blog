@@ -40,17 +40,17 @@ const Home: NextPage<Props> = ({ articles }) => {
 				<p>WARNING: These projects are all still under development and not optimised for production use. Some stuff will outright not work.</p>
 				<article className={styles.project}>
 					<h2>Polar slicer</h2>
-					<p>Bring your own code, open source, Polar web-slicer/toolpath generator</p>
+					<p>Bring your own code, open source, Polar web-slicer/tool path generator thingymagic. Big plans, little time & a lot of complexity.</p>
 					<a className={styles.visit} href="https://slicer.sams.land">visit{' ->'}</a>
 				</article>
 				<article className={styles.project}>
 					<h2>Home of hope</h2>
-					<p>My girlfriend own nook on the web. Go there if you like poetry.</p>
+					<p>My girlfriend&apos;s own nook on the www. Go there if you like poetry.</p>
 					<a className={styles.visit} href="https://hope.tigrr.be">visit{' ->'}</a>
 				</article>
 				<article className={styles.project}>
 					<h2>This blog</h2>
-					<p>Whelp. This is meta.</p>
+					<p>Whelp. This is meta. This blog was build in one evening. Should I write a blogpost about creating this blog?</p>
 				</article>
 				<article className={styles.project}>
 					<h2>3D browser</h2>
