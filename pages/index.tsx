@@ -37,6 +37,7 @@ const Home: NextPage<Props> = ({ articles }) => {
 			<section>
 				<h1>In progress</h1>
 				<p>I have so many projects that I want to work on. These are some of my personal projects that are on my mind right now.</p>
+				<p>WARNING: These projects are all still under development and not optimised for production use. Some stuff will outright not work.</p>
 				<article className={styles.project}>
 					<h2>Polar slicer</h2>
 					<p>Bring your own code, open source, Polar web-slicer/toolpath generator</p>
