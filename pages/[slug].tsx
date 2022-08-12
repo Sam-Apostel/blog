@@ -52,9 +52,7 @@ const Article: NextPage<SerializedArticle> = (serializedArticle) => {
 				<meta name="description" content={hook} />
 			</Head>
 
-			<Link
-				href={'/'}
-			>
+			<Link href={'/'}>
 				<a className={styles.back}>{'<- '}GOBACK</a>
 			</Link>
 			<h1>{title}</h1>
