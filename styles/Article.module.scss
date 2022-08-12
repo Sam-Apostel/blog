@@ -9,6 +9,9 @@
 				line-height: 2;
 				tab-size: 4;
 			}
+			> span {
+				box-decoration-break: clone;
+			}
 		}
 		h3 {
 			margin-top: 3rem;
