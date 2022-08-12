@@ -1,9 +1,9 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useMatchMedia = (media: string, ) => {
 	const [matches, setMatches] = useState<boolean>();
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const match = window.matchMedia(media);
 		setMatches(match.matches);
 		match.addEventListener('change', e => setMatches(e.matches));

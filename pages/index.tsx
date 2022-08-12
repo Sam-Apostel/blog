@@ -28,7 +28,6 @@ const Home: NextPage<Props> = ({ articles }) => {
 	return (
 		<>
 			<section>
-
 				<h1>Blog</h1>
 				{articles.map(deserializeArticle).map((article, i) => (
 					<Card key={article.slug} {...article} lure={lures[i % lures.length]} />

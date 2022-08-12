@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<SerializedArticle, Query> = async ({
 
 const Article: NextPage<SerializedArticle> = (serializedArticle) => {
 	const prefersDark = useMatchMedia('(prefers-color-scheme: dark)');
-	console.log(prefersDark);
+
 	const {
 		title,
 		hook,

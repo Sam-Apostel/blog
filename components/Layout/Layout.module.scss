@@ -15,6 +15,10 @@
 		main {
 			display: flex;
 			flex-direction: column;
+			> section + section {
+				border-top-width: 1px;
+				border-top-style: solid;
+			}
 		}
 
 		footer {

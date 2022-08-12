@@ -29,7 +29,6 @@ export type SerializedArticle = {
 }
 
 export const serializeArticle = ({ published, ...article }: FirebaseArticle, slug: string): SerializedArticle => {
-	console.log(published);
 	return {
 		...article,
 		published: published.toDate().toJSON(),
