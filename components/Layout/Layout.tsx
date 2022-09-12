@@ -6,10 +6,7 @@ const layout = ({ children }: PropsWithChildren) => {
 	return (
 		<>
 			<div className={styles.body}>
-				<main>
-					{children}
-				</main>
-				<Footer />
+				{children}
 			</div>
 		</>
 	);

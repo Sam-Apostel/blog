@@ -11,8 +11,11 @@
 			border-bottom-style: solid;
 			border-bottom-color: var(--gray-light);
 		}
-		.more {
-			align-self: end;
+
+
+		.bottom {
+			display: flex;
+			justify-content: space-between;
 		}
 
 	}

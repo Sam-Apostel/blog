@@ -1,6 +1,7 @@
+import { PropsWithChildren } from 'react';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+const Footer = ({ children }: PropsWithChildren) => {
 	return (
 		<footer className={styles.footer}>
 			{/*<a*/}
@@ -10,6 +11,7 @@ const Footer = () => {
 			{/*>*/}
 			{/*	Portfolio*/}
 			{/*</a>*/}
+			{children}
 			<a
 				href="https://github.com/Sam-Apostel"
 				target="_blank"

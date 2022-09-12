@@ -12,6 +12,8 @@ import dark from 'react-syntax-highlighter/dist/cjs/styles/hljs/a11y-dark'
 import light from 'react-syntax-highlighter/dist/cjs/styles/hljs/a11y-light'
 import useMatchMedia from '../hooks/useMatchMedia';
 import Link from 'next/link';
+import Footer from '../components/Footer/Footer';
+import Date from '../components/Date';
 
 SyntaxHighlighter.registerLanguage('ts', typescript)
 SyntaxHighlighter.registerLanguage('md', markdown)
@@ -43,54 +45,62 @@ const Article: NextPage<SerializedArticle> = (serializedArticle) => {
 		hook,
 		subtitle,
 		content,
+		canonical,
+		published
 	} = deserializeArticle(serializedArticle);
 
 	return (
 		<>
-			<Head>
-				<title>{title}</title>
-				<meta name="description" content={hook} />
-			</Head>
+			<main>
+				<Head>
+					<title>{title}</title>
+					<meta name="description" content={hook} />
+					{canonical && <link rel="canonical" href={canonical} />}
+				</Head>
 
-			<Link href={'/'}>
-				<a className={styles.back}>{'<- '}GOBACK</a>
-			</Link>
-			<h1>{title}</h1>
-			<h2>{subtitle}</h2>
-			<section className={styles.content}>
-				<ReactMarkdown
-					components={{
-						code({ node, className, ...props }) {
-							const match = /language-(\w+)/.exec(className || '')
-							return match ? (
-								<SyntaxHighlighter
-									// @ts-ignore
-									style={prefersDark ? dark : light}
-									language={match?.[1]}
-									useInlineStyles={true}
-									customStyle={{ borderRadius: '.3rem', border: '1px solid var(--gray-light)' }}
-									{...props}
-								/>
-							) : (
-								<SyntaxHighlighter
-									// @ts-ignore
-									style={prefersDark ? dark : light}
-									language={'md'}
-									useInlineStyles={true}
-									PreTag={'span'}
-									customStyle={{ display: 'inline', padding: '.1rem .4rem', borderRadius: '.3rem', border: '1px solid var(--gray-light)' }}
-									{...props}
-								/>
-							)
-						}
-					}}
-				>
-					{content}
-				</ReactMarkdown>
-			</section>
-
+				<Link href={'/'}>
+					<a className={styles.back}>{'<- '}GOBACK</a>
+				</Link>
+				<Date date={published} className={styles.published} />
+				<h1>{title}</h1>
+				{subtitle && <h2>{subtitle}</h2>}
+				<section className={styles.content}>
+					<ReactMarkdown
+						components={{
+							code({ node, className, ...props }) {
+								const match = /language-(\w+)/.exec(className || '')
+								return match ? (
+									<SyntaxHighlighter
+										// @ts-ignore
+										style={prefersDark ? dark : light}
+										language={match?.[1]}
+										useInlineStyles={true}
+										customStyle={{ borderRadius: '.3rem', border: '1px solid var(--gray-light)' }}
+										{...props}
+									/>
+								) : (
+									<SyntaxHighlighter
+										// @ts-ignore
+										style={prefersDark ? dark : light}
+										language={'md'}
+										useInlineStyles={true}
+										PreTag={'span'}
+										customStyle={{ display: 'inline', padding: '.1rem .4rem', borderRadius: '.3rem', border: '1px solid var(--gray-light)' }}
+										{...props}
+									/>
+								)
+							}
+						}}
+					>
+						{content}
+					</ReactMarkdown>
+				</section>
+			</main>
+			<Footer>
+				{canonical && <a href={canonical}>Original post</a>}
+			</Footer>
 		</>
-	)
+	);
 }
 
 export default Article

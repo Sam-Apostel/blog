@@ -20,6 +20,21 @@
 		p {
 			margin-block: 1rem;
 		}
+		blockquote {
+			border-left: 2px solid var(--dark);
+			margin-inline: 0;
+			padding-inline: 1rem;
+			padding-block: .1rem; // against collapsing margins
+
+			background-color: #8883;
+			border-radius: .3rem;
+
+		}
+	}
+	.published {
+		text-align: right;
+
+
 	}
 	.back {
 		display: block;

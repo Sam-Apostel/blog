@@ -4,28 +4,31 @@ import { Timestamp, WhereFilterOp } from '@firebase/firestore';
 
 export type FirebaseArticle = {
 	title: string;
-	subtitle: string;
+	subtitle?: string;
 	hook: string;
 	content: string;
 	published: Timestamp;
+	canonical?: string;
 }
 
 export type Article = {
 	title: string;
-	subtitle: string;
+	subtitle?: string;
 	hook: string;
 	content: string;
 	published: Date;
 	slug: string;
+	canonical?: string;
 }
 
 export type SerializedArticle = {
 	title: string;
-	subtitle: string;
+	subtitle?: string;
 	hook: string;
 	content: string;
 	published: string;
 	slug: string;
+	canonical?: string;
 }
 
 export const serializeArticle = ({ published, ...article }: FirebaseArticle, slug: string): SerializedArticle => {
