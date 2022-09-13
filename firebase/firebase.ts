@@ -52,15 +52,11 @@ const updateArticle = (slug: string, newData: Partial<Article>) => {
  * just await this function where it will be executed, and you can update the data.
  */
 const editArticle = async () => {
-	const article = await require('../articles/you-might-not-need-useref-for-that.md').default;
+	// const article = await require('../articles/you-might-not-need-useref-for-that.md').default;
 
 	return updateArticle('you-might-not-need-useref-for-that', {
-		content: article
+		// content: article
 	});
 }
 
-
-
-
-
-
+// editArticle();
