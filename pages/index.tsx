@@ -43,11 +43,11 @@ const Home: NextPage<Props> = ({ articles }) => {
 					{/*	<p>Bring your own code, open source, Polar web-slicer/tool path generator thingymagic. Big plans, little time & a lot of complexity.</p>*/}
 					{/*	<a className={styles.visit} href="https://slicer.sams.land">visit{' ->'}</a>*/}
 					{/*</article>*/}
-					{/*<article className={styles.project}>*/}
-					{/*	<h2>Home of hope</h2>*/}
-					{/*	<p>My girlfriend&apos;s own nook on the www. Go there if you like poetry.</p>*/}
-					{/*	<a className={styles.visit} href="https://hope.tigrr.be">visit{' ->'}</a>*/}
-					{/*</article>*/}
+					<article className={styles.project}>
+						<h2>Home of hope</h2>
+						<p>My girlfriend&apos;s own nook on the www. Go there if you like poetry.</p>
+						<a className={styles.visit} href="https://hope.tigrr.be">visit{' ->'}</a>
+					</article>
 					{/*<article className={styles.project}>*/}
 					{/*	<h2>This blog</h2>*/}
 					{/*	<p>Whelp. This is meta. This blog was build in one evening. Should I write a blogpost about creating this blog?</p>*/}
