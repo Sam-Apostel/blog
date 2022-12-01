@@ -30,6 +30,16 @@
 			border-radius: .3rem;
 
 		}
+		img {
+			width: calc(90vw);
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin-left: calc(-45vw);
+			margin-right: calc(-45vw);
+			border-radius: .5rem;
+			box-shadow: 0 0 1rem .5rem hsla(210, 22%, 33%, 0.3);
+		}
 	}
 	.published {
 		text-align: right;
