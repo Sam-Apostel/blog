@@ -43,11 +43,11 @@ const Home: NextPage<Props> = ({ articles }) => {
 					{/*	<p>Bring your own code, open source, Polar web-slicer/tool path generator thingymagic. Big plans, little time & a lot of complexity.</p>*/}
 					{/*	<a className={styles.visit} href="https://slicer.sams.land">visit{' ->'}</a>*/}
 					{/*</article>*/}
-					<article className={styles.project}>
-						<h2>Home of hope</h2>
-						<p>My girlfriend&apos;s own nook on the www. Go there if you like poetry.</p>
-						<a className={styles.visit} href="https://hope.tigrr.be">visit{' ->'}</a>
-					</article>
+					{/*<article className={styles.project}>*/}
+					{/*	<h2>Home of hope</h2>*/}
+					{/*	<p>My girlfriend&apos;s own nook on the www. Go there if you like poetry.</p>*/}
+					{/*	<a className={styles.visit} href="https://hope.tigrr.be">visit{' ->'}</a>*/}
+					{/*</article>*/}
 					{/*<article className={styles.project}>*/}
 					{/*	<h2>This blog</h2>*/}
 					{/*	<p>Whelp. This is meta. This blog was build in one evening. Should I write a blogpost about creating this blog?</p>*/}
@@ -57,10 +57,23 @@ const Home: NextPage<Props> = ({ articles }) => {
 					{/*	<p>A page to view my 3D models, designed to be 3D printed.</p>*/}
 					{/*	<a className={styles.visit} href="https://3d.sams.land">visit{' ->'}</a>*/}
 					{/*</article>*/}
+					{/*<article className={styles.project}>*/}
+					{/*	<h2>Footprints garden</h2>*/}
+					{/*	<p>Tools and things I do. A collection for personal use. Build using a single dependency: Bun</p>*/}
+					{/*	<a className={styles.visit} href="https://footprints.garden">visit{' ->'}</a>*/}
+					{/*</article>*/}
 					<article className={styles.project}>
-						<h2>Footprints garden</h2>
-						<p>Tools and things I do. A collection for personal use. Build using a single dependency: Bun</p>
-						<a className={styles.visit} href="https://footprints.garden">visit{' ->'}</a>
+						<h2>Christmas wishlist</h2>
+						<p>I make a new wishlist website every year. Different features, technologies and gimmicks.</p>
+						<a className={styles.visit} href="https://kerst.sams.land">visit{' ->'}</a>
+					</article>
+					<article className={styles.project}>
+						<h2>Everything Next 13 Server components</h2>
+						<p>Different levels of explaining what server components are and patterns for using them.</p>
+					</article>
+					<article className={styles.project}>
+						<h2>Mortgage simulator</h2>
+						<p>A spreadsheet for visualizing and calculating mortgage options.</p>
 					</article>
 				</section>
 				{/*<Subscribe />*/}
