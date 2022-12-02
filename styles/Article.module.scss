@@ -35,10 +35,10 @@
 			position: relative;
 			left: 50%;
 			right: 50%;
-			margin-left: calc(-45vw);
-			margin-right: calc(-45vw);
+			margin-inline: calc(-45vw);
+			margin-block: 2rem;
 			border-radius: .5rem;
-			box-shadow: 0 0 1rem .5rem hsla(210, 22%, 33%, 0.3);
+			box-shadow: 0 0 1.5rem .2rem hsla(205, 18%, 24%, 0.2);
 		}
 	}
 	.published {
