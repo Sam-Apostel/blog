@@ -8,7 +8,6 @@
 		"start": "next start",
 		"lint": "next lint",
 		"prettier": "prettier --write .",
-		"postbuild": "next-sitemap",
 		"db-sync": "xata codegen"
 	},
 	"dependencies": {
