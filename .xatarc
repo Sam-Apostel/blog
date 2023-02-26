@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Sam-Apostel-s-workspace-rk6t0c.eu-west-1.xata.sh/db/controll-room",
+  "codegen": {
+    "output": "globals/xata.ts"
+  }
+}

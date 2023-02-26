@@ -1,8 +1,6 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "indent": [
-      "error", "tab"
-    ]
-  }
+	"extends": ["next", "next/core-web-vitals", "prettier"],
+	"rules": {
+		"indent": ["error", "tab"]
+	}
 }

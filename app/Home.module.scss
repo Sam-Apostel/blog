@@ -1,3 +1,4 @@
+@layer setup, components, pages;
 @layer pages {
 	.project {
 		display: flex;
@@ -16,5 +17,4 @@
 			align-self: end;
 		}
 	}
-
 }

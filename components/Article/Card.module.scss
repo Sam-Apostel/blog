@@ -3,8 +3,18 @@
 		margin-block: 1rem;
 		padding-block: 1rem;
 
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: min-content auto;
+		gap: 2rem;
+
+		.textContent {
+			display: flex;
+			flex-direction: column;
+			grid-column-end: span 2;
+		}
+		.image + .textContent {
+			grid-column-end: span 1;
+		}
 
 		&:not(:last-of-type) {
 			border-bottom-width: 1px;
@@ -12,11 +22,26 @@
 			border-bottom-color: var(--gray-light);
 		}
 
-
 		.bottom {
 			display: flex;
 			justify-content: space-between;
-		}
+			font-family: jetbrains, monospace;
 
+			.date {
+				color: var(--gray);
+			}
+		}
+		.image {
+			aspect-ratio: 6 / 5;
+
+			img {
+				display: block;
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				border-radius: 0.5rem;
+				border: 1px solid var(--gray-light);
+			}
+		}
 	}
 }

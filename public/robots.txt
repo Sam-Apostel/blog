@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.sams.land
+
+# Sitemaps
+Sitemap: https://www.sams.land/sitemap.xml

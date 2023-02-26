@@ -1,28 +1,30 @@
 import styles from './Card.module.scss';
 import Link from 'next/link';
-import { Article } from '../../firebase/types';
 import Date from '../Date';
+import { Blogpost } from '~/globals/db';
 
-type Props = Article & {
+type Props = Blogpost & {
 	lure: string;
 };
 
-const Card = ({ title, subtitle, hook, slug, lure, published }: Props) => {
+const Card = ({ title, hook, slug, lure, published, cover }: Props) => {
 	return (
-		<article className={styles.article}>
-			<h2>{title}</h2>
-			{subtitle && <h3>{subtitle}</h3>}
-			<p>{hook}</p>
-			<div className={styles.bottom}>
-				<Date date={published} />
-				<Link
-					href={{
-						pathname: '/[slug]',
-						query: { slug: slug }
-					}}
-				>
-					<a>{lure}{' ->'}</a>
-				</Link>
+		<article className={styles.article} aria-describedby={`${slug}_hook`}>
+			{cover && (
+				<div className={styles.image}>
+					<img src={cover} />
+				</div>
+			)}
+			<div className={styles.textContent}>
+				<h3>{title}</h3>
+				<p id={`${slug}_hook`}>{hook}</p>
+				<footer className={styles.bottom}>
+					<Date date={published} className={styles.date} />
+					<Link href={`/a/${slug}`}>
+						{lure}
+						{' ->'}
+					</Link>
+				</footer>
 			</div>
 		</article>
 	);

@@ -1,32 +1,40 @@
 {
-  "name": "blog",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "firebase": "^9.9.2",
-    "firebase-admin": "^11.0.1",
-    "next": "^12.2.5",
-    "nextjs-google-analytics": "^2.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-markdown": "^8.0.3",
-    "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.54.4",
-    "swr": "^1.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "^18.7.1",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
-    "@types/react-syntax-highlighter": "^15.5.4",
-    "eslint": "8.21.0",
-    "eslint-config-next": "^12.2.5",
-    "typescript": "4.7.4"
-  }
+	"name": "blog",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prettier": "prettier --write .",
+		"postbuild": "next-sitemap",
+		"db-sync": "xata codegen"
+	},
+	"dependencies": {
+		"@vercel/og": "latest",
+		"@xata.io/client": "latest",
+		"class-variance-authority": "latest",
+		"highlight.js": "latest",
+		"next": "latest",
+		"next-sitemap": "latest",
+		"next-superjson-plugin": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-markdown": "latest",
+		"react-wrap-balancer": "latest",
+		"superjson": "latest"
+	},
+	"devDependencies": {
+		"@types/node": "latest",
+		"@types/react": "latest",
+		"@types/react-dom": "latest",
+		"@xata.io/cli": "latest",
+		"eslint": "latest",
+		"eslint-config-next": "latest",
+		"eslint-config-prettier": "latest",
+		"prettier": "latest",
+		"sass": "latest",
+		"typescript": "latest"
+	}
 }

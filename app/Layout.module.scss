@@ -1,3 +1,4 @@
+@layer setup, components, pages;
 @layer components {
 	.body {
 		// keep content at a book-like readable width on bigger screens
@@ -11,17 +12,18 @@
 		justify-content: space-between;
 		gap: 2rem;
 
-
-		main {
+		> main {
 			display: flex;
 			flex-direction: column;
+			margin-top: 1rem;
+
 			> section + section {
 				border-top-width: 1px;
 				border-top-style: solid;
 			}
 		}
 
-		footer {
+		> footer {
 			height: 4rem;
 		}
 	}

@@ -1,15 +1,11 @@
 const Date = ({ date, ...props }: { date: Date } | Record<string, any>) => {
-
-	const dateFormatter = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full' });
+	const dateFormatter = new Intl.DateTimeFormat('be');
 
 	return (
-		<time
-			dateTime={date.toDateString()}
-			{...props}
-		>
+		<time dateTime={date.toISOString()} {...props}>
 			{dateFormatter.format(date)}
 		</time>
 	);
 };
 
-export default Date
+export default Date;
