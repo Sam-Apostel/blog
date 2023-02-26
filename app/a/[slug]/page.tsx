@@ -74,7 +74,7 @@ export default async function Article({ params: { slug } }: PageProps) {
 	);
 }
 
-export async function generateMetaData({ params: { slug } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params: { slug } }: PageProps): Promise<Metadata> {
 	const post = (await xata.db.blogposts
 		.filter({
 			$all: [{ slug }],
