@@ -15,7 +15,7 @@ import { CodeBlock, CodeInline } from './Code';
 const xata = getXataClient();
 
 export async function generateStaticParams() {
-	const posts = await xata.db.blogposts
+	const posts = await xata.db.blogpost
 		.filter({ published: { $lt: new Date() } })
 		.select(['slug'])
 		.getAll();
@@ -35,7 +35,7 @@ function isPublished(post: Blogpost): post is PublishedBlogPost {
 type PageProps = { params: { slug: string } };
 
 export default async function Article({ params: { slug } }: PageProps) {
-	const post = (await xata.db.blogposts
+	const post = (await xata.db.blogpost
 		.filter({
 			$all: [{ slug }, { published: { $lt: new Date() } }],
 		})
@@ -75,7 +75,7 @@ export default async function Article({ params: { slug } }: PageProps) {
 }
 
 export async function generateMetadata({ params: { slug } }: PageProps): Promise<Metadata> {
-	const post = (await xata.db.blogposts
+	const post = (await xata.db.blogpost
 		.filter({
 			$all: [{ slug }],
 		})

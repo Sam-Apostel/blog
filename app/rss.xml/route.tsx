@@ -4,7 +4,7 @@ import { Blogpost, getXataClient } from '~/globals/db';
 const xata = getXataClient();
 
 export async function GET() {
-	const articles = await xata.db.blogposts
+	const articles = await xata.db.blogpost
 		.filter({ published: { $lt: new Date() } })
 		.sort('published', 'desc')
 		.getAll();
