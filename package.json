@@ -17,12 +17,10 @@
 		"highlight.js": "latest",
 		"next": "latest",
 		"next-sitemap": "latest",
-		"next-superjson-plugin": "latest",
 		"react": "latest",
 		"react-dom": "latest",
 		"react-markdown": "latest",
-		"react-wrap-balancer": "latest",
-		"superjson": "latest"
+		"react-wrap-balancer": "latest"
 	},
 	"devDependencies": {
 		"@types/node": "latest",
@@ -34,6 +32,6 @@
 		"eslint-config-prettier": "latest",
 		"prettier": "latest",
 		"sass": "latest",
-		"typescript": "latest"
+		"typescript": ">= 4.5.5 < 5"
 	}
 }
