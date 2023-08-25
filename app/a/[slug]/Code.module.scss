@@ -22,6 +22,11 @@
 		line-height: 2;
 		tab-size: 4;
 		font-size: 0.9em;
+
+		> [class$="-strikethrough"] {
+			text-decoration: line-through;
+			opacity: .6;
+		}
 	}
 
 	.code {
