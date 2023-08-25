@@ -53,6 +53,22 @@
 				inset-inline: unset;
 			}
 		}
+
+		pre {
+			box-shadow: 0 0 1.5rem 0.2rem hsl(205 18% 24% / 0.2);
+
+			--jump-out: 450px;
+
+			position: relative;
+			width: max(min(90vw, calc(var(--jump-out) * 2)), 100%);
+			margin-inline: max(-45vw, calc(var(--jump-out) * -1));
+			inset-inline: 50%;
+
+			@media (max-width: 90ch * 0.9) {
+				margin-inline: unset;
+				inset-inline: unset;
+			}
+		}
 	}
 
 	.published {
