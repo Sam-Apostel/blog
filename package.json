@@ -33,5 +33,11 @@
 		"prettier": "^3.2.5",
 		"sass": "^1.77.2",
 		"typescript": "^5.4.5"
-	}
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"singleQuote": true,
+		"printWidth": 120
+	}	
 }

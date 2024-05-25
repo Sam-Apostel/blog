@@ -1,23 +1,14 @@
 import styles from './Article.module.scss';
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
-import ReactMarkdown from 'react-markdown';
-import Balancer from 'react-wrap-balancer';
-
 import { getXataClient, Project } from '~/globals/db';
-
-import { CodeBlock, CodeInline } from './Code';
+import Markdown from '~/components/Markdown/Markdown';
 
 const xata = getXataClient();
 
 export async function generateStaticParams() {
-	const projects = await xata.db.project
-		.filter({ published: true })
-		.select(['slug'])
-		.getAll();
+	const projects = await xata.db.project.filter({ published: true }).select(['slug']).getAll();
 
 	return projects.map((project) => ({
 		slug: project.slug,
@@ -42,24 +33,7 @@ export default async function Article({ params: { slug } }: PageProps) {
 			<Link href="../../" className={styles.back}>
 				{'<- '}GOBACK
 			</Link>
-			<article className={styles.content}>
-				<ReactMarkdown
-					components={{
-						code: CodeInline,
-						/* @ts-ignore */
-						pre: CodeBlock,
-						h1: ({ children }) => <Balancer as="h1">{children}</Balancer>,
-						h2: ({ children }) => <Balancer as="h2">{children}</Balancer>,
-						h3: ({ children }) => (
-							<Balancer ratio={0.7} as="p">
-								{children}
-							</Balancer>
-						),
-					}}
-				>
-					{content}
-				</ReactMarkdown>
-			</article>
+			<Markdown>{content}</Markdown>
 		</main>
 	);
 }
@@ -74,9 +48,7 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 	if (!project) notFound();
 	if (!project.published) notFound();
 
-	const {
-		name, description, url, showUrl
-	} = project;
+	const { name, description, url, showUrl } = project;
 
 	return {
 		title: name,

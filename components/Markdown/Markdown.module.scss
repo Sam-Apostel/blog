@@ -1,0 +1,74 @@
+@layer setup, components, pages;
+@layer components {
+	.content {
+		line-height: 2;
+		display: flex;
+		flex-direction: column;
+		margin-block-end: 4rem;
+
+		h1 {
+			align-self: end;
+			@media (max-width: 600px) {
+				align-self: center;
+			}
+		}
+		h2 {
+			margin-top: 5rem;
+		}
+		a {
+			text-decoration: underline;
+		}
+
+		h3 {
+			margin-top: 3rem;
+			font-size: 1.5rem;
+		}
+
+		p {
+			margin-block: max(1vw, 1rem);
+		}
+
+		blockquote {
+			border-left: 2px solid var(--dark);
+			margin-inline: 0;
+			padding-inline: 1rem;
+			padding-block: 0.1rem; // against collapsing margins
+
+			background-color: #8881;
+			border-radius: 0.3rem;
+		}
+
+		img,
+		video {
+			margin-block: 2vw;
+			border-radius: 0.5rem;
+			box-shadow: 0 0 1.5rem 0.2rem hsla(0, 0%, 0%, 0.2);
+
+			position: relative;
+			width: max(min(90vw, 1000px), 100%);
+			margin-inline: max(-45vw, -500px);
+			inset-inline: 50%;
+
+			@media (max-width: 81ch) {
+				margin-inline: unset;
+				inset-inline: unset;
+			}
+		}
+
+		pre {
+			box-shadow: 0 0 1.5rem 0.2rem hsl(205 18% 24% / 0.2);
+
+			--jump-out: 450px;
+
+			position: relative;
+			width: max(min(90vw, calc(var(--jump-out) * 2)), 100%);
+			margin-inline: max(-45vw, calc(var(--jump-out) * -1));
+			inset-inline: 50%;
+
+			@media (max-width: 81ch) {
+				margin-inline: unset;
+				inset-inline: unset;
+			}
+		}
+	}
+}
