@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg1k2jml8si1891iq8ig",
+  "parentID": "mig_cg1jvrjnd08vgklp0hqg",
+  "checksum": "1:71ddc0fc70cfc0cdfe64c02e425ebb1d50ed6c4998e360ec0d8b3fff538748a6",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "finished",
+        "table": "update"
+      }
+    }
+  ]
+}

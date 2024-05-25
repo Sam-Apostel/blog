@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg169bul8si1891ierc0",
+  "parentID": "mig_cg16943nd08vgkloq3bg",
+  "checksum": "1:a29f5608b1efafd1f36322ec20d73d700943eed21e694857c5565cbbf67abdc5",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "avatar",
+          "type": "string"
+        },
+        "table": "contact"
+      }
+    }
+  ]
+}

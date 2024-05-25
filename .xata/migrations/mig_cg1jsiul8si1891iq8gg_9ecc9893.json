@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg1jsiul8si1891iq8gg",
+  "parentID": "mig_cg1jsgrnd08vgklp0hpg",
+  "checksum": "1:9ecc98937f878b480f756a00aa32fb7e60a3002d8e2eb66d62dad1699bd0055e",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "update",
+        "oldName": "updates"
+      }
+    }
+  ]
+}

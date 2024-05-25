@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg1k636l8si1891iq8p0",
+  "parentID": "mig_cg1k60el8si1891iq8og",
+  "checksum": "1:cccc77067abbd4c356fda36ec6a36c0a23204bfb3c22eb9763ca346e5f5bc375",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "completed",
+          "type": "datetime"
+        },
+        "table": "update"
+      }
+    }
+  ]
+}

@@ -74,6 +74,7 @@
 		color: var(--focusable-color, inherit);
 
 		text-decoration: var(--focusable-text-decor, none);
+
 		&:hover {
 			text-decoration: underline;
 		}

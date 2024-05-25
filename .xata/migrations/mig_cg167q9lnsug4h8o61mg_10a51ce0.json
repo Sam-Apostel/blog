@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg167q9lnsug4h8o61mg",
+  "parentID": "mig_cg167bplnsug4h8o61m0",
+  "checksum": "1:10a51ce00bf4eea4073ec269b1769250d3c9f282d2fa323fe9bacde9b6d7cf14",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "date",
+          "type": "datetime"
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

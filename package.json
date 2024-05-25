@@ -11,27 +11,27 @@
 		"db-sync": "xata codegen"
 	},
 	"dependencies": {
-		"@vercel/og": "latest",
-		"@xata.io/client": "latest",
-		"class-variance-authority": "latest",
-		"highlight.js": "latest",
-		"next": "latest",
-		"next-sitemap": "latest",
-		"react": "latest",
-		"react-dom": "latest",
-		"react-markdown": "latest",
-		"react-wrap-balancer": "latest"
+		"@vercel/og": "^0.6.2",
+		"@xata.io/client": "^0.29.4",
+		"class-variance-authority": "^0.7.0",
+		"highlight.js": "^11.9.0",
+		"next": "14.2.3",
+		"next-sitemap": "^4.2.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-markdown": "^9.0.1",
+		"react-wrap-balancer": "^1.1.0"
 	},
 	"devDependencies": {
-		"@types/node": "latest",
-		"@types/react": "latest",
-		"@types/react-dom": "latest",
-		"@xata.io/cli": "latest",
-		"eslint": "latest",
-		"eslint-config-next": "latest",
-		"eslint-config-prettier": "latest",
-		"prettier": "latest",
-		"sass": "latest",
-		"typescript": ">= 4.5.5 < 5"
+		"@types/node": "^20.12.12",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@xata.io/cli": "^0.15.14",
+		"eslint": "^9.3.0",
+		"eslint-config-next": "^14.2.3",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.2.5",
+		"sass": "^1.77.2",
+		"typescript": "^5.4.5"
 	}
 }

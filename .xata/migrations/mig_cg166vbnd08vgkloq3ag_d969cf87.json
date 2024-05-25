@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg166vbnd08vgkloq3ag",
+  "parentID": "mig_cg166t6l8si1891ier60",
+  "checksum": "1:d969cf8744aa65047c6f9e2b2cfe0a1f6c496be10806497c0655ecdda8994821",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "mail",
+        "oldName": "mails"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "mig_cg168mel8si1891ierag",
+  "parentID": "mig_cg168f6l8si1891iera0",
+  "checksum": "1:fd91f5123123ccd709678badc4700ffe3f9ffde44b899f3f6fedc4ceaba6bf95",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "from",
+          "type": "link",
+          "link": {
+            "table": "contact"
+          }
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mig_cg1qbjrnd08vgklp1ld0",
+  "parentID": "mig_cg1qbghlnsug4h8omea0",
+  "checksum": "1:ae556bfbd713666f8c0882cb50f15724de03f024b2bab8afcd1177a31afc174d",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "completed",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "false"
+        },
+        "table": "update"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mig_ceh0ir09mcspie457b50",
+  "parentID": "mig_ceh0iib3jj757ltd8r7g",
+  "checksum": "1:255bdb5a39430a50fb9816f01ce725be252572506508629016bd6ca817d07689",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "content",
+          "type": "text",
+          "notNull": true,
+          "defaultValue": ""
+        },
+        "table": "blogposts"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg16emel8si1891ifgjg",
+  "parentID": "mig_cg16ekml8si1891ifgj0",
+  "checksum": "1:01d5180d05f68953742698026843eb404e85c04431797689daca3903ddb52b69",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "cc",
+          "type": "multiple"
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

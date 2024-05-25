@@ -1,20 +1,8 @@
 @layer setup, components, pages;
 @layer pages {
-	.project {
-		display: flex;
-		flex-direction: column;
-
-		margin-block: 1rem;
-		padding-block: 1rem;
-
-		&:not(:last-of-type) {
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
-			border-bottom-color: var(--gray-light);
-		}
-
-		.visit {
-			align-self: end;
-		}
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		gap: 2rem;
 	}
 }

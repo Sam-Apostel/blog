@@ -1,0 +1,12 @@
+{
+  "id": "mig_cg16896l8si1891ier9g",
+  "parentID": "mig_cg1683ul8si1891ier8g",
+  "checksum": "1:2291729c925bc81986bba09779bc7bd41e1d0e71b4c0e3307caf1bd1ba17259a",
+  "operations": [
+    {
+      "addTable": {
+        "table": "contact"
+      }
+    }
+  ]
+}

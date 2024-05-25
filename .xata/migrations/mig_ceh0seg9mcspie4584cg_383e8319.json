@@ -1,0 +1,16 @@
+{
+  "id": "mig_ceh0seg9mcspie4584cg",
+  "parentID": "mig_ceh0sco9mcspie4584c0",
+  "checksum": "1:383e8319fa80e998a2159b542a801b86e31c08c0907da43094ae11f4c2f211b9",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "last_fetched",
+          "type": "datetime"
+        },
+        "table": "feeds"
+      }
+    }
+  ]
+}

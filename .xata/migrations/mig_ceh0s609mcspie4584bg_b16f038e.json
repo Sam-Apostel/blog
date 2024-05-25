@@ -1,0 +1,17 @@
+{
+  "id": "mig_ceh0s609mcspie4584bg",
+  "parentID": "mig_ceh0ku89mcspie457b5g",
+  "checksum": "1:b16f038ef577990d5532bfeb4eeacc4a0974b2feed3a045524f0255be88bc0ca",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "url",
+          "type": "string",
+          "unique": true
+        },
+        "table": "feeds"
+      }
+    }
+  ]
+}
