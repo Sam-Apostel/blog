@@ -1,0 +1,12 @@
+{
+  "id": "mig_ceh0iib3jj757ltd8r7g",
+  "parentID": "mig_ceh0iib3jj757ltd8r6g",
+  "checksum": "1:d0e36e241d2ecd5ba3053e91e3780ae03fb45b744415cb8c09e12d83aaab6ed6",
+  "operations": [
+    {
+      "addTable": {
+        "table": "mails"
+      }
+    }
+  ]
+}

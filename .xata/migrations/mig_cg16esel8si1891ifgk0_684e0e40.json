@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg16esel8si1891ifgk0",
+  "parentID": "mig_cg16eo1lnsug4h8o6ak0",
+  "checksum": "1:684e0e401ae1a5d0e72f9bf89f8eaa14e21d4bdfb380ffb88348d47414c48d45",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "sender",
+          "type": "multiple"
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

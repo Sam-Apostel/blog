@@ -1,0 +1,18 @@
+{
+  "id": "mig_cp8p655nk050v1gbq9d0",
+  "parentID": "mig_cp8p60lnk050v1gbq9c0",
+  "checksum": "1:29dbc6b750b9a0abd9623a287c78f69dbb5c71a4120d2b14520c4aa52affd823",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "description",
+          "type": "text",
+          "notNull": true,
+          "defaultValue": ""
+        },
+        "table": "project"
+      }
+    }
+  ]
+}

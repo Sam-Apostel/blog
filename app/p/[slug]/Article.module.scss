@@ -1,0 +1,12 @@
+@layer setup, components, pages;
+@layer pages {
+	.published {
+		align-self: end;
+		font-family: jetbrains, monospace;
+	}
+
+	.back {
+		align-self: start;
+		font-family: jetbrains, monospace;
+	}
+}

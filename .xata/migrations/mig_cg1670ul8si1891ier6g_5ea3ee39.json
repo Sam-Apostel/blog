@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg1670ul8si1891ier6g",
+  "parentID": "mig_cg166vbnd08vgkloq3ag",
+  "checksum": "1:5ea3ee3915d974bb7949e91ef4dd8ecf17b4a583d70c192e7bd02fe332704c06",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "feed",
+        "oldName": "feeds"
+      }
+    }
+  ]
+}

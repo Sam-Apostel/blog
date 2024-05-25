@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg167u6l8si1891ier80",
+  "parentID": "mig_cg167q9lnsug4h8o61mg",
+  "checksum": "1:6c718af955af61fbda01d09e273b60ad5d17077f976fe54a4c9fb5fc4c29ea6e",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "subject",
+          "type": "string"
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

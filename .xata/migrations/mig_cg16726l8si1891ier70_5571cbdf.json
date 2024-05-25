@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg16726l8si1891ier70",
+  "parentID": "mig_cg1670ul8si1891ier6g",
+  "checksum": "1:5571cbdf51a3eb4d80b5f2f4122d48ffc177ec0bda0381ea7e646c342d614103",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "blogpost",
+        "oldName": "blogposts"
+      }
+    }
+  ]
+}

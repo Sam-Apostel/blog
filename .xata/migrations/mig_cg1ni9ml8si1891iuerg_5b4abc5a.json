@@ -1,0 +1,18 @@
+{
+  "id": "mig_cg1ni9ml8si1891iuerg",
+  "parentID": "mig_cg1ni5ul8si1891iuer0",
+  "checksum": "1:5b4abc5ac13f2f0f4d8755c8fdab59dc6811d4bbb3716a500d1459cafdd57b6f",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "resource",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": ""
+        },
+        "table": "update"
+      }
+    }
+  ]
+}

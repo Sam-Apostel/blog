@@ -1,0 +1,19 @@
+{
+  "id": "mig_cg16943nd08vgkloq3bg",
+  "parentID": "mig_cg1692el8si1891ierbg",
+  "checksum": "1:3075abf5c4bafabc6ce6a765c7c2f2133cf59956731f42f168ecb84bb725b230",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "bcc",
+          "type": "link",
+          "link": {
+            "table": "contact"
+          }
+        },
+        "table": "mail"
+      }
+    }
+  ]
+}

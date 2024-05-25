@@ -1,0 +1,16 @@
+{
+  "id": "mig_cfsicp6emqrncoikj840",
+  "parentID": "mig_cfndumqbnmkdopd6pk00",
+  "checksum": "1:880bb4afd5ceb3ade8e7063a57ebb33ecc8860bad3d0fb3fb646ea84dffe9bb9",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "cover",
+          "type": "string"
+        },
+        "table": "blogposts"
+      }
+    }
+  ]
+}

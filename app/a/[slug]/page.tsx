@@ -4,13 +4,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import ReactMarkdown from 'react-markdown';
-import Balancer from 'react-wrap-balancer';
-
 import DateTime from '~/components/Date';
 import { getXataClient, Blogpost } from '~/globals/db';
 
-import { CodeBlock, CodeInline } from './Code';
+import Markdown from '~/components/Markdown/Markdown';
 
 const xata = getXataClient();
 
@@ -53,22 +50,7 @@ export default async function Article({ params: { slug } }: PageProps) {
 				{'<- '}GOBACK
 			</Link>
 			<article className={styles.content}>
-				<ReactMarkdown
-					components={{
-						code: CodeInline,
-						/* @ts-ignore */
-						pre: CodeBlock,
-						h1: ({ children }) => <Balancer as="h1">{children}</Balancer>,
-						h2: ({ children }) => <Balancer as="h2">{children}</Balancer>,
-						h3: ({ children }) => (
-							<Balancer ratio={0.7} as="p">
-								{children}
-							</Balancer>
-						),
-					}}
-				>
-					{content}
-				</ReactMarkdown>
+				<Markdown>{content}</Markdown>
 			</article>
 		</main>
 	);
@@ -84,13 +66,7 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 	if (!post) notFound();
 	if (!isPublished(post)) notFound();
 
-	const {
-		title,
-		hook,
-		canonical,
-		keywords,
-		published
-	} = post;
+	const { title, hook, canonical, keywords, published } = post;
 
 	return {
 		title: title,
@@ -98,7 +74,7 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 		alternates: {
 			canonical: canonical ?? `https://sams.land/a/${slug}`,
 		},
-		keywords: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...keywords ?? []],
+		keywords: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...(keywords ?? [])],
 		openGraph: {
 			title: `${title} | Sam Apostel`,
 			description: hook,
@@ -115,7 +91,7 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 			type: 'article',
 			publishedTime: published.toISOString(),
 			authors: 'Sam Apostel',
-			tags: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...keywords ?? []]
+			tags: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...(keywords ?? [])],
 		},
 		twitter: {
 			card: 'summary', // summary_large_image

@@ -1,4 +1,4 @@
-import { XataClient, Blogpost as _Blogpost } from './xata';
+import { XataClient, Blogpost as _Blogpost, Project as _Project } from './xata';
 
 let instance: XataClient | undefined = undefined;
 
@@ -19,3 +19,4 @@ export const getXataClient = () => {
 };
 
 export type Blogpost = _Blogpost;
+export type Project = _Project;

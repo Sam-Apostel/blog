@@ -1,0 +1,13 @@
+{
+  "id": "mig_cg16e4plnsug4h8o6aig",
+  "parentID": "mig_cg169ful8si1891iercg",
+  "checksum": "1:97794f8a2378be3fa9d2e3213d5cdacaa2349b994e8d15f0da476a5c1aa30be6",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "from",
+        "table": "mail"
+      }
+    }
+  ]
+}

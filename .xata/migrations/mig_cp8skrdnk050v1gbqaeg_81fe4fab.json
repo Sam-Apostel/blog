@@ -1,0 +1,18 @@
+{
+  "id": "mig_cp8skrdnk050v1gbqaeg",
+  "parentID": "mig_cp8sk520blf634fbpqf0",
+  "checksum": "1:81fe4fab0a0bf7fe62a3d375f75548ae4191d357f6a91ff7b976dcfe7d5b1d8d",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "dedicatedPage",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "false"
+        },
+        "table": "project"
+      }
+    }
+  ]
+}

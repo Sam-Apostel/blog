@@ -1,0 +1,16 @@
+{
+  "id": "mig_cg166o6l8si1891ier50",
+  "parentID": "mig_cg166jrnd08vgkloq3a0",
+  "checksum": "1:220d281eb43e1593520de9b91cd3aad2d1512d1ae0d8f10f4e170755367da4c1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "labels",
+          "type": "multiple"
+        },
+        "table": "mails"
+      }
+    }
+  ]
+}

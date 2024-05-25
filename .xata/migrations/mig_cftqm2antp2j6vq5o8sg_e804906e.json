@@ -1,0 +1,16 @@
+{
+  "id": "mig_cftqm2antp2j6vq5o8sg",
+  "parentID": "mig_cfsicp6emqrncoikj840",
+  "checksum": "1:e804906e397746e458ed17b454377250f80b33be9ef93ca37f2eff480438f932",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "keywords",
+          "type": "multiple"
+        },
+        "table": "blogposts"
+      }
+    }
+  ]
+}

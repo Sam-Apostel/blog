@@ -1,0 +1,12 @@
+{
+  "id": "mig_cg166t6l8si1891ier60",
+  "parentID": "mig_cg166o6l8si1891ier50",
+  "checksum": "1:95b4f1b76cf590a30f1efe88db1d2e9cac155dbab0f0502a2d21195bd6821a2a",
+  "operations": [
+    {
+      "addTable": {
+        "table": "thread"
+      }
+    }
+  ]
+}

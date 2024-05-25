@@ -2,7 +2,7 @@ import './globals.scss';
 import { PropsWithChildren } from 'react';
 import Footer from '~/components/Footer/Footer';
 import styles from './Layout.module.scss';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 export default function RootLayout({ children }: PropsWithChildren) {
 	return (
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
 export const metadata: Metadata = {
 	title: {
-		default: "Sam Apostel",
+		default: 'Sam Apostel',
 		template: '%s | Sam Apostel',
 	},
 	description: 'Web and personal development.',
@@ -28,9 +28,6 @@ export const metadata: Metadata = {
 	referrer: 'origin-when-cross-origin',
 	keywords: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel'],
 	authors: [{ name: 'Sam Apostel', url: 'https://github.com/Sam_Apostel' }],
-	themeColor: '#a99dd3', // light
-	// themeColor: '#585ea6', // dark
-	colorScheme: 'dark',
 	creator: 'Sam Apostel',
 	publisher: 'Sam Apostel',
 	formatDetection: {
@@ -59,7 +56,7 @@ export const metadata: Metadata = {
 		title: 'Sam Apostel',
 		description: 'Web and personal development.',
 		creator: '@sam_apostel',
-	// 	images: ['https://sams.land/og.png'],
+		// 	images: ['https://sams.land/og.png'],
 	},
 	alternates: {
 		canonical: 'https://sams.land',
@@ -67,4 +64,12 @@ export const metadata: Metadata = {
 			'application/rss+xml': 'https://sams.land/rss.xml',
 		},
 	},
+};
+
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#a99dd3' },
+		{ media: '(prefers-color-scheme: light)', color: '#585ea6' },
+	],
+	colorScheme: 'dark',
 };
