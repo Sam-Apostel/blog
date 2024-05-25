@@ -1,6 +1,9 @@
+import { PropsWithChildren } from 'react';
+
 import hljs from 'highlight.js';
-import { CodeProps } from 'react-markdown/lib/ast-to-react';
 import styles from './Code.module.scss';
+
+type CodeProps = PropsWithChildren<{ className: string }>;
 
 export default function Code({ className, children }: CodeProps) {
 	const match = /language-(\w+)/.exec(className || '');
