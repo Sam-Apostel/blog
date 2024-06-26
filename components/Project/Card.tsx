@@ -24,7 +24,7 @@ const Card = ({ name, description, slug, url, showUrl, dedicatedPage }: Props) =
 
 				{dedicatedPage && (
 					<Link className={styles.projectLink} href={`/p/${slug}`}>
-						more {' ->'}
+						more <span>{' ->'}</span>
 					</Link>
 				)}
 			</div>

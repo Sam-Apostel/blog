@@ -1,0 +1,13 @@
+@layer setup, components, pages;
+@layer components {
+	.LinkIcon {
+		> path {
+			transition: 0.15s;
+		}
+	}
+	*:hover > .LinkIcon {
+		path:nth-child(n + 2) {
+			translate: 2px -2px;
+		}
+	}
+}

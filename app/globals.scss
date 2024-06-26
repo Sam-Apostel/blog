@@ -76,7 +76,7 @@
 		text-decoration: var(--focusable-text-decor, none);
 
 		&:hover {
-			text-decoration: underline;
+			// text-decoration: underline;
 		}
 		@media (pointer: coarse) {
 			text-decoration: underline;

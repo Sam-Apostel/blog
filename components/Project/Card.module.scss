@@ -18,6 +18,15 @@
 			padding: 1rem;
 
 			font-family: jetbrains, monospace;
+			> span {
+				transition: 0.15s;
+
+				display: inline-block;
+				text-decoration: none;
+			}
+			&:hover > span {
+				translate: 4px;
+			}
 		}
 		.header {
 			display: flex;
