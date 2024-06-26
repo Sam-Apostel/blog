@@ -7,34 +7,23 @@
 		gap: 1rem;
 		border: 1px solid var(--gray-light);
 		border-radius: 3px;
-		position: relative;
 
 		.projectLink {
-			position: absolute;
-			right: 0;
-			top: 0;
-
 			opacity: 0.5;
-			font-size: 1rem;
+			font-size: 0.8rem;
 			display: flex;
 			gap: 0.5rem;
 			align-items: center;
 			justify-content: flex-end;
 			padding: 1rem;
+
+			font-family: jetbrains, monospace;
 		}
 		.header {
 			display: flex;
 			gap: 1rem;
 			align-items: baseline;
 			justify-content: space-between;
-			.projectLinkPlaceholder {
-				opacity: 0;
-				font-size: 1rem;
-				display: flex;
-				gap: 0.5rem;
-				align-items: center;
-				pointer-events: none;
-			}
 		}
 	}
 }
