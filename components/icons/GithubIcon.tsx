@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function GithubIcon() {
 	return (
 		<svg aria-hidden viewBox="0 0 16 16" version="1.1" height="1em">

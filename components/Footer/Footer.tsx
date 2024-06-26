@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import styles from './Footer.module.scss';
-import GithubIcon from '~/components/GithubIcon';
+import GithubIcon from '~/components/icons/GithubIcon';
 
 const Footer = ({ children }: PropsWithChildren) => {
 	return (
