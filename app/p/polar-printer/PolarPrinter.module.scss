@@ -1,0 +1,102 @@
+@layer setup, components, pages;
+@layer pages {
+	body:has(.main) {
+		--bg-color: rgb(49, 117, 204);
+		--bold-color: #fff4;
+		--light-color: #fff2;
+
+		--small-size: 30px;
+		--bold-count: 5;
+
+		--big-size: calc(var(--bold-count) * var(--small-size));
+		background-color: var(--bg-color);
+		background-image: linear-gradient(to right, var(--light-color) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--light-color) 1px, transparent 1px),
+			linear-gradient(to right, var(--bold-color) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--bold-color) 1px, transparent 1px);
+		background-size:
+			var(--small-size) var(--small-size),
+			var(--small-size) var(--small-size),
+			var(--big-size) var(--big-size),
+			var(--big-size) var(--big-size);
+
+		--gray: white;
+	}
+
+	.columns {
+		display: flex;
+		gap: 4rem;
+		max-width: calc(100vw - 3rem);
+		> * {
+			width: max-content;
+		}
+	}
+	.back {
+		align-self: start;
+		font-family: jetbrains, monospace;
+	}
+
+	.todo {
+		h2 {
+			margin-top: 15rem;
+		}
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.2rem;
+		}
+		label {
+			display: flex;
+			gap: 0.5rem;
+			align-items: center;
+			> :checked + span {
+				text-decoration: line-through;
+			}
+		}
+		input[type='checkbox'] {
+			appearance: none;
+			width: 0.7rem;
+			height: 0.7rem;
+			border-radius: 2px;
+			background-color: #fff2;
+			border: 1px solid white;
+			&:checked {
+				background-color: white;
+			}
+		}
+	}
+
+	.main {
+		h1 {
+			text-shadow:
+				0 0 2px var(--bg-color),
+				0 0 4px var(--bg-color),
+				0 0 8px var(--bg-color),
+				0 0 16px var(--bg-color),
+				0 0 32px var(--bg-color),
+				0 0 64px var(--bg-color);
+		}
+		p {
+			font-size: 1.2rem;
+			color: white;
+			text-shadow:
+				0 0 2px var(--bg-color),
+				0 0 4px var(--bg-color),
+				0 0 8px var(--bg-color),
+				0 0 16px var(--bg-color),
+				0 0 32px var(--bg-color),
+				0 0 64px var(--bg-color);
+		}
+		img {
+			box-shadow: none;
+			border: 1px solid var(--bold-color);
+			background-color: var(--bg-color);
+		}
+		img[src='/polar-tiger-27-5-24.png'] {
+			padding: 4rem 0 0 0;
+		}
+	}
+}
