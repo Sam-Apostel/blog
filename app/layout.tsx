@@ -3,6 +3,8 @@ import { PropsWithChildren } from 'react';
 import Footer from '~/components/Footer/Footer';
 import styles from './Layout.module.scss';
 import { Metadata, Viewport } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({ children }: PropsWithChildren) {
 	return (
@@ -13,6 +15,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
 					{children}
 					<Footer />
 				</div>
+				<SpeedInsights />
+				<Analytics />
 			</body>
 		</html>
 	);
