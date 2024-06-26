@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from './Markdown.module.scss';
 import { CodeInline, CodeBlock } from '../Code/Code';
 import Balancer from 'react-wrap-balancer';
+import LinkIcon from '../icons/LinkIcon';
 
 export default function Markdown({ children }: { children?: string | null | undefined }) {
 	return (
@@ -29,6 +30,12 @@ export default function Markdown({ children }: { children?: string | null | unde
 						}
 						return <img {...props} />;
 					},
+					a: ({ children, ...props }) => (
+						<a {...props} className={styles.url}>
+							{children}
+							<LinkIcon />
+						</a>
+					),
 				}}
 			>
 				{children}
