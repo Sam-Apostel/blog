@@ -1,6 +1,9 @@
+import { Metadata } from 'next';
 import styles from './PolarPrinter.module.scss';
 import Link from 'next/link';
 import Markdown from '~/components/Markdown/Markdown';
+import { generateProjectMetadata } from '../generateProjectMetadata';
+
 export default function PolarPrinterPage() {
 	return (
 		<main className={styles.main}>
@@ -62,4 +65,8 @@ function TODO() {
 			</ul>
 		</div>
 	);
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+	return generateProjectMetadata('polar-printer');
 }
