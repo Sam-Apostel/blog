@@ -6,13 +6,15 @@ import { getXataClient, Project } from '~/globals/db';
 import Markdown from '~/components/Markdown/Markdown';
 
 const xata = getXataClient();
-
+const dedicatedPages = ['polar-printer'];
 export async function generateStaticParams() {
 	const projects = await xata.db.project.filter({ published: true }).select(['slug']).getAll();
 
-	return projects.map((project) => ({
-		slug: project.slug,
-	}));
+	return projects
+		.filter((project) => !dedicatedPages.includes(project.slug))
+		.map((project) => ({
+			slug: project.slug,
+		}));
 }
 
 type PageProps = { params: { slug: string } };
