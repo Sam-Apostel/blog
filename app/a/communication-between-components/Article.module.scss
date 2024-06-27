@@ -1,0 +1,28 @@
+@layer setup, components, pages;
+@layer pages {
+	.published {
+		align-self: end;
+		font-family: jetbrains, monospace;
+	}
+
+	.back {
+		align-self: start;
+		font-family: jetbrains, monospace;
+	}
+
+	.content {
+		div:has(> :global(.ch-scrollycoding)) {
+			--jump-out: 450px;
+
+			position: relative;
+			width: max(min(90vw, calc(var(--jump-out) * 2)), 100%);
+			margin-inline: max(-45vw, calc(var(--jump-out) * -1));
+			inset-inline: 50%;
+
+			@media (max-width: 81ch) {
+				margin-inline: unset;
+				inset-inline: unset;
+			}
+		}
+	}
+}

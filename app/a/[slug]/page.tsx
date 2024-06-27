@@ -11,15 +11,19 @@ import Markdown from '~/components/Markdown/Markdown';
 
 const xata = getXataClient();
 
+const dedicatedPages = ['communication-between-components'];
+
 export async function generateStaticParams() {
 	const posts = await xata.db.blogpost
 		.filter({ published: { $lt: new Date() } })
 		.select(['slug'])
 		.getAll();
 
-	return posts.map((post) => ({
-		slug: post.slug,
-	}));
+	return posts
+		.filter((post) => !dedicatedPages.includes(post.slug!))
+		.map((post) => ({
+			slug: post.slug,
+		}));
 }
 
 type PublishedBlogPost = Omit<Blogpost, 'published'> & { published: Date };
