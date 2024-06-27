@@ -319,7 +319,13 @@ export async function generateMetadata(): Promise<Metadata> {
 			description: hook,
 			url: `https://sams.land/a/${slug}`,
 			siteName: 'sams.land',
-
+			images: [
+				{
+					url: `https://sams.land/a/${slug}/facebook.png`,
+					width: 1800,
+					height: 1600,
+				},
+			],
 			locale: 'en-US',
 			type: 'article',
 			publishedTime: published.toISOString(),
@@ -327,10 +333,11 @@ export async function generateMetadata(): Promise<Metadata> {
 			tags: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...(keywords ?? [])],
 		},
 		twitter: {
-			card: 'summary',
+			card: 'summary_large_image',
 			title: title,
 			description: hook,
 			creator: '@sam_apostel',
+			images: [`https://sams.land/a/${slug}/twitter.png`],
 		},
 	};
 }
