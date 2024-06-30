@@ -11,7 +11,8 @@
 	}
 
 	.content {
-		div:has(> :global(.ch-scrollycoding)) {
+		div:has(> :global(.ch-scrollycoding)),
+		& > :global(.ch-codegroup) {
 			--jump-out: 450px;
 
 			position: relative;
@@ -22,6 +23,38 @@
 			@media (max-width: 81ch) {
 				margin-inline: unset;
 				inset-inline: unset;
+			}
+		}
+		:global {
+			.ch-frame-buttons,
+			.ch-editor-button {
+				display: none !important;
+			}
+
+			.ch-code-wrapper {
+				font-family: jetbrains, monospace;
+			}
+
+			.ch-codegroup, 
+			.ch-codeblock {
+				font-family: jetbrains, monospace;
+				white-space: pre-wrap !important;
+				background: var(--light);
+				border-radius: 0.3rem;
+				border: 1px solid var(--gray-light);
+			}
+
+			@media (max-width: 81ch) {
+				.ch-scrollycoding {
+					flex-direction: column-reverse;
+				}
+				.ch-scrollycoding-sticker {
+					// position: sticky !important;
+					top: 1rem !important;
+					// bottom: 1rem;
+					// inset-inline: 1rem;
+					width: 100% !important;
+				}
 			}
 		}
 	}

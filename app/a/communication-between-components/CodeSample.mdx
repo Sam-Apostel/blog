@@ -1,0 +1,249 @@
+
+## Example
+
+<CH.Scrollycoding>
+
+This is a very common piece of code that shares some state with multiple child components
+<CH.Code>
+``` tsx index.tsx
+function Main() {
+    const [value, setValue] = useState<Value>();
+
+    return (
+        <Page>
+            <Sidebar
+                value={value} 
+                setValue={setValue}
+            />
+            <Renderer value={value} />
+        </Page>
+    );
+}
+
+type ValueProps = { 
+    value: Value;
+    setValue: Dispatch<SetStateAction<Value>>;
+};
+
+function Sidebar({ value, setValue }: ValueProps) {
+    return (
+        <Input 
+            value={value} 
+            onChange={setValue} 
+        />
+    );
+}
+```
+</CH.Code>
+
+---
+
+The way state is passed through is called **prop drilling**.
+
+<CH.Code>
+``` tsx index.tsx
+function Main() {
+    // focus
+    const [value, setValue] = useState<Value>();
+
+    return (
+        <Page>
+            <Sidebar
+                // focus(1:2)
+                value={value} 
+                setValue={setValue}
+            />
+            <Renderer value={value} />
+        </Page>
+    );
+}
+
+// focus(1:4)
+type ValueProps = { 
+    value: Value;
+    setValue: Dispatch<SetStateAction<Value>>;
+};
+
+// focus(1[18:48])
+function Sidebar({ value, setValue }: ValueProps) {
+    return (
+        <Input 
+            // focus(1:2)
+            value={value} 
+            onChange={setValue} 
+        />
+    );
+}
+```
+</CH.Code>
+---
+Use react **context** to make the state accessible to components down the tree. 
+
+<CH.Code>
+``` tsx valueContext.tsx
+type ValueState = [Value, Dispatch<SetStateAction<Value>>];
+
+// focus
+export const ValueContext = createContext<ValueState>();
+```
+---
+``` tsx index.tsx
+function Main() {
+    const [value, setValue] = useState<Value>();
+
+    return (
+        <Page>
+            // focus(1,4)
+            <ValueContext.Provider value={[value, setValue]}>
+                <Sidebar />
+                <Renderer value={value} />
+            </ValueContext.Provider>
+        </Page>
+    );
+}
+
+function Sidebar() {
+    // focus
+    const [value, setValue] = useContext(ValueContext);
+
+    return (
+        <Input 
+            value={value} 
+            onChange={setValue} 
+        />
+    );
+}
+```
+</CH.Code>
+
+---
+Create a **dedicated provider and components** that consume your context. This will make your state reusable across your application.
+
+<CH.Code>
+``` tsx valueContext.tsx
+type ValueState = [Value, Dispatch<SetStateAction<Value>>];
+
+export const ValueContext = createContext<ValueState>();
+
+// focus(1:5)
+export function ValueProvider({ children }: PropsWithChildren){
+    const [value, setValue] = useState<Value>();
+
+    return <ValueContext.Provider children={children} />;
+}
+```
+---
+``` tsx index.tsx
+function Main() {
+    return (
+        <Page>
+			// focus(1,3:4)
+            <ValueProvider>
+                <Sidebar />
+                <ValueRenderer />
+            </ValueProvider>
+        </Page>
+    );
+}
+
+function Sidebar() {
+    const [value, setValue] = useContext(ValueContext);
+
+    return (
+        <Input 
+            value={value} 
+            onChange={setValue} 
+        />
+    );
+}
+```
+</CH.Code>
+
+---
+
+Then add **dedicated components** to consume your provider
+
+<CH.Code>
+``` tsx valueContext.tsx
+type ValueState = [Value, Dispatch<SetStateAction<Value>>];
+
+export const ValueContext = createContext<ValueState>();
+
+export function ValueProvider({ children }: PropsWithChildren){
+    const [value, setValue] = useState<Value>();
+
+    return <ValueContext.Provider children={children} />;
+}
+```
+---
+``` tsx index.tsx
+function Main() {
+    return (
+        <Page>
+            <ValueProvider>
+                <Sidebar />
+                <ValueRenderer />
+            </ValueProvider>
+        </Page>
+    );
+}
+
+function Sidebar() {
+    return (
+		// focus
+        <ValueInput />
+    );
+}
+```
+</CH.Code>
+</CH.Scrollycoding>
+
+## Result
+<CH.Code>
+``` tsx index.tsx
+function Main() {
+    return (
+        <Page>
+            <ValueProvider>
+                <Sidebar />
+                <ValueRenderer />
+            </ValueProvider>
+        </Page>
+    );
+}
+
+function Sidebar() {
+    return (
+        <ValueInput />
+    );
+}
+```
+
+``` tsx valueContext.tsx
+type ValueState = ReturnType<typeof useState<Value>>;
+const ValueContext = createContext<ValueState>();
+
+export function ValueProvider({ children }: PropsWithChildren){
+    const [value, setValue] = useState<Value>();
+
+    return <ValueContext.Provider children={children} />;
+}
+
+export function useValueState() {
+    return useContext(ValueContext);
+}
+
+export ValueRenderer() {
+    const [value] = useValueState();
+
+    return <Renderer value={value} />;
+}
+
+export ValueInput() {
+    const [value, setValue] = useValueState();
+
+    return <Input value={value} onChange={setValue} />;
+}
+```
+</CH.Code>
+The dedicated provider and the named hooks is where you would move any logic related to how this state can update and any side effects that should happen. This brings together all related logic in instead of sprinkling multiple flows through each other.
