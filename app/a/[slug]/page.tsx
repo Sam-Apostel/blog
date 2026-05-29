@@ -3,28 +3,15 @@ import styles from './Article.module.scss';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { and, eq, lt } from 'drizzle-orm';
 
 import DateTime from '~/components/Date';
-import { getXataClient, Blogpost } from '~/globals/db';
+import { db, Blogpost } from '~/globals/db';
+import { blogpost } from '~/globals/schema';
 
 import Markdown from '~/components/Markdown/Markdown';
 
-const xata = getXataClient();
-
-const dedicatedPages = ['communication-between-components'];
-
-export async function generateStaticParams() {
-	const posts = await xata.db.blogpost
-		.filter({ published: { $lt: new Date() } })
-		.select(['slug'])
-		.getAll();
-
-	return posts
-		.filter((post) => !dedicatedPages.includes(post.slug!))
-		.map((post) => ({
-			slug: post.slug,
-		}));
-}
+export const dynamic = 'force-dynamic';
 
 type PublishedBlogPost = Omit<Blogpost, 'published'> & { published: Date };
 
@@ -36,11 +23,11 @@ function isPublished(post: Blogpost): post is PublishedBlogPost {
 type PageProps = { params: { slug: string } };
 
 export default async function Article({ params: { slug } }: PageProps) {
-	const post = (await xata.db.blogpost
-		.filter({
-			$all: [{ slug }, { published: { $lt: new Date() } }],
-		})
-		.getFirst()) as Blogpost | null;
+	const [post] = await db
+		.select()
+		.from(blogpost)
+		.where(and(eq(blogpost.slug, slug), lt(blogpost.published, new Date())))
+		.limit(1);
 
 	if (!post) notFound();
 	if (!isPublished(post)) notFound();
@@ -61,11 +48,7 @@ export default async function Article({ params: { slug } }: PageProps) {
 }
 
 export async function generateMetadata({ params: { slug } }: PageProps): Promise<Metadata> {
-	const post = (await xata.db.blogpost
-		.filter({
-			$all: [{ slug }],
-		})
-		.getFirst()) as Blogpost | null;
+	const [post] = await db.select().from(blogpost).where(eq(blogpost.slug, slug)).limit(1);
 
 	if (!post) notFound();
 	if (!isPublished(post)) notFound();
@@ -84,13 +67,6 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 			description: hook,
 			url: `https://sams.land/a/${slug}`,
 			siteName: 'sams.land',
-			// images: [
-			// 	{
-			// 		url: `https://sams.land/a/${slug}/og.png`,
-			// 		width: 1800,
-			//      height: 1600,
-			// 	},
-			// ],
 			locale: 'en-US',
 			type: 'article',
 			publishedTime: published.toISOString(),
@@ -98,11 +74,10 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
 			tags: ['React', 'JavaScript', 'Blog', 'Personal', 'Sam Apostel', ...(keywords ?? [])],
 		},
 		twitter: {
-			card: 'summary', // summary_large_image
+			card: 'summary',
 			title: title,
 			description: hook,
 			creator: '@sam_apostel',
-			// 	images: ['https://sams.land/og.png'],
 		},
 	};
 }

@@ -2,30 +2,22 @@ import styles from './Article.module.scss';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getXataClient, Project } from '~/globals/db';
+import { and, eq } from 'drizzle-orm';
+import { db } from '~/globals/db';
+import { project } from '~/globals/schema';
 import Markdown from '~/components/Markdown/Markdown';
 import { generateProjectMetadata } from '../generateProjectMetadata';
 
-const xata = getXataClient();
-const dedicatedPages = ['polar-printer'];
-export async function generateStaticParams() {
-	const projects = await xata.db.project.filter({ published: true }).select(['slug']).getAll();
-
-	return projects
-		.filter((project) => !dedicatedPages.includes(project.slug))
-		.map((project) => ({
-			slug: project.slug,
-		}));
-}
+export const dynamic = 'force-dynamic';
 
 type PageProps = { params: { slug: string } };
 
 export default async function Article({ params: { slug } }: PageProps) {
-	const post = (await xata.db.project
-		.filter({
-			$all: [{ slug }, { published: true }],
-		})
-		.getFirst()) as Project | null;
+	const [post] = await db
+		.select()
+		.from(project)
+		.where(and(eq(project.slug, slug), eq(project.published, true)))
+		.limit(1);
 
 	if (!post) notFound();
 

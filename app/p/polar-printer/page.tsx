@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Markdown from '~/components/Markdown/Markdown';
 import { generateProjectMetadata } from '../generateProjectMetadata';
 
+export const dynamic = 'force-dynamic';
+
 export default function PolarPrinterPage() {
 	return (
 		<main className={styles.main}>

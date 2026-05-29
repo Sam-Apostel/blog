@@ -2,16 +2,18 @@ import styles from './Article.module.scss';
 import '@apostel/mdx/styles';
 
 import Link from 'next/link';
+import { and, eq, lt } from 'drizzle-orm';
 
 import DateTime from '~/components/Date';
-import { getXataClient, Blogpost } from '~/globals/db';
+import { db, Blogpost } from '~/globals/db';
+import { blogpost } from '~/globals/schema';
 
 import Markdown from '~/components/Markdown/Markdown';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import CodeSample from './CodeSample.mdx';
 
-const xata = getXataClient();
+export const dynamic = 'force-dynamic';
 
 type PublishedBlogPost = Omit<Blogpost, 'published'> & { published: Date };
 const slug = 'communication-between-components';
@@ -22,11 +24,11 @@ function isPublished(post: Blogpost): post is PublishedBlogPost {
 }
 
 export default async function Article() {
-	const post = (await xata.db.blogpost
-		.filter({
-			$all: [{ slug }, { published: { $lt: new Date() } }],
-		})
-		.getFirst()) as Blogpost | null;
+	const [post] = await db
+		.select()
+		.from(blogpost)
+		.where(and(eq(blogpost.slug, slug), lt(blogpost.published, new Date())))
+		.limit(1);
 
 	if (!post) notFound();
 	if (!isPublished(post)) notFound();
@@ -48,11 +50,7 @@ export default async function Article() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-	const post = (await xata.db.blogpost
-		.filter({
-			$all: [{ slug }],
-		})
-		.getFirst()) as Blogpost | null;
+	const [post] = await db.select().from(blogpost).where(eq(blogpost.slug, slug)).limit(1);
 
 	if (!post) notFound();
 	if (!isPublished(post)) notFound();

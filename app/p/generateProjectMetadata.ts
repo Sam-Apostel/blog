@@ -1,20 +1,16 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getXataClient, Project } from '~/globals/db';
-
-const xata = getXataClient();
+import { eq } from 'drizzle-orm';
+import { db } from '~/globals/db';
+import { project } from '~/globals/schema';
 
 export async function generateProjectMetadata(slug: string): Promise<Metadata> {
-	const project = (await xata.db.project
-		.filter({
-			$all: [{ slug }],
-		})
-		.getFirst()) as Project | null;
+	const [proj] = await db.select().from(project).where(eq(project.slug, slug)).limit(1);
 
-	if (!project) notFound();
-	if (!project.published) notFound();
+	if (!proj) notFound();
+	if (!proj.published) notFound();
 
-	const { name, description } = project;
+	const { name, description } = proj;
 
 	return {
 		title: name,
