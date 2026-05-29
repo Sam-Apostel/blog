@@ -1,17 +1,24 @@
 import ArticleCard from '~/components/Article/Card';
 import ProjectCard from '~/components/Project/Card';
-import { getXataClient } from '~/globals/db';
+import { desc, eq, lt } from 'drizzle-orm';
+import { db } from '~/globals/db';
+import { blogpost, project } from '~/globals/schema';
 import styles from './Home.module.scss';
 
-const xata = getXataClient();
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-	const articles = await xata.db.blogpost
-		.filter({ published: { $lt: new Date() } })
-		.sort('published', 'desc')
-		.getAll();
+	const articles = await db
+		.select()
+		.from(blogpost)
+		.where(lt(blogpost.published, new Date()))
+		.orderBy(desc(blogpost.published));
 
-	const projects = await xata.db.project.filter({ published: true }).sort('xata.updatedAt', 'desc').getAll();
+	const projects = await db
+		.select()
+		.from(project)
+		.where(eq(project.published, true))
+		.orderBy(desc(project.updatedAt));
 
 	const lures = ['README', 'more', 'continue reading', '...'];
 
@@ -28,7 +35,7 @@ export default async function Home() {
 				<h2>Projects</h2>
 				<p>I'm always starting new projects. Here are some of the things I have been working on.</p>
 				<div className={styles.projects}>
-					{projects.map((project, i) => (
+					{projects.map((project) => (
 						<ProjectCard key={project.id} {...project} />
 					))}
 				</div>

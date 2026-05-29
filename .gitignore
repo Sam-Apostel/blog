@@ -33,3 +33,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# database seed dumps (drop Xata exports here, see seed/README.md)
+/seed/*.json

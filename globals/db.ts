@@ -1,22 +1,16 @@
-import { XataClient, Blogpost as _Blogpost, Project as _Project } from './xata';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
+import * as schema from './schema';
 
-let instance: XataClient | undefined = undefined;
+const connectionString = process.env.DATABASE_URL;
+if (!connectionString) throw new Error('DATABASE_URL is not set');
 
-export const getXataClient = () => {
-	if (instance) return instance;
+// Reuse a single client across HMR reloads in development.
+const globalForDb = globalThis as unknown as { client?: ReturnType<typeof postgres> };
+const client = globalForDb.client ?? postgres(connectionString, { prepare: false });
+if (process.env.NODE_ENV !== 'production') globalForDb.client = client;
 
-	instance = new XataClient({
-		fetch: (path, options) =>
-			fetch(path, {
-				...options,
-				cache:
-					process.env.NODE_ENV && process.env.NEXT_PHASE !== 'phase-production-build'
-						? 'force-cache'
-						: 'default',
-			}),
-	});
-	return instance;
-};
+export const db = drizzle(client, { schema });
 
-export type Blogpost = _Blogpost;
-export type Project = _Project;
+export type Blogpost = typeof schema.blogpost.$inferSelect;
+export type Project = typeof schema.project.$inferSelect;
