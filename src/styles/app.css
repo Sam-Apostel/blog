@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+/*
+ * The site has three "modes" — software, lifestyle, hardware. Switching the
+ * mode sets `data-mode` on <html> and the whole site re-themes through these
+ * CSS custom properties. Each mode owns its palette, typography and feel.
+ */
+
+@theme {
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+	--font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 100 800;
+	font-display: swap;
+	src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+:root {
+	/* Sensible defaults; overridden per-mode below. */
+	--bg: #fbf3ec;
+	--surface: #fff9f4;
+	--fg: #1a1614;
+	--muted: #7a6f68;
+	--border: #e6d8cd;
+	--accent: #e8501e;
+	--accent-fg: #fff9f4;
+	--font-body: var(--font-mono);
+	--font-heading: var(--font-mono);
+	--radius: 0.25rem;
+	color-scheme: light;
+}
+
+/* ── Software: technical, monospace, warm cream + signal orange ───────── */
+[data-mode='software'] {
+	--bg: #fbf3ec;
+	--surface: #fff9f4;
+	--fg: #1a1614;
+	--muted: #7a6f68;
+	--border: #e6d8cd;
+	--accent: #e8501e;
+	--accent-fg: #fff9f4;
+	--font-body: var(--font-mono);
+	--font-heading: var(--font-mono);
+	--radius: 0.25rem;
+	color-scheme: light;
+}
+
+/* ── Lifestyle: editorial, serif, calm off-white ──────────────────────── */
+[data-mode='lifestyle'] {
+	--bg: #f6f5f2;
+	--surface: #ffffff;
+	--fg: #1c1c1a;
+	--muted: #6b6b66;
+	--border: #e4e2dc;
+	--accent: #1c1c1a;
+	--accent-fg: #ffffff;
+	--font-body: var(--font-serif);
+	--font-heading: var(--font-serif);
+	--radius: 0.75rem;
+	color-scheme: light;
+}
+
+/* ── Hardware: blueprint, industrial, dark with signal orange ─────────── */
+[data-mode='hardware'] {
+	--bg: #0e1116;
+	--surface: #161b22;
+	--fg: #e8edf2;
+	--muted: #8b97a3;
+	--border: #263039;
+	--accent: #ff6b35;
+	--accent-fg: #0e1116;
+	--font-body: var(--font-mono);
+	--font-heading: var(--font-mono);
+	--radius: 0.125rem;
+	color-scheme: dark;
+}
+
+@layer base {
+	html {
+		background-color: var(--bg);
+		color: var(--fg);
+		font-family: var(--font-body);
+		-webkit-font-smoothing: antialiased;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100dvh;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-heading);
+		text-wrap: balance;
+		font-weight: 700;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	::selection {
+		background: var(--accent);
+		color: var(--accent-fg);
+	}
+
+	* {
+		border-color: var(--border);
+	}
+}
+
+/* Convenience utilities mapped onto the theme variables. */
+@utility bg-surface {
+	background-color: var(--surface);
+}
+@utility text-muted {
+	color: var(--muted);
+}
+@utility text-accent {
+	color: var(--accent);
+}
+@utility bg-accent {
+	background-color: var(--accent);
+	color: var(--accent-fg);
+}
+@utility border-default {
+	border-color: var(--border);
+}
