@@ -1,8 +1,0 @@
-@layer setup, components, pages;
-@layer pages {
-	.projects {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-		gap: 2rem;
-	}
-}
